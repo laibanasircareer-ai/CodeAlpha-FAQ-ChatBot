@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CODE Pakistan Policy Assistant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body data-theme="light">
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="topbar">
+    <div class="topbar__brand">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="34" height="34">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M20 6 A14 14 0 0 1 20 34" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <circle cx="20" cy="20" r="3.4" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-title">CODE Pakistan</span>
+        <span class="brand-subtitle">Policy Assistant</span>
+      </div>
+    </div>
+
+    <div class="topbar__status">
+      <span class="status-dot" id="statusDot" aria-hidden="true"></span>
+      <span id="statusLabel">Connecting to knowledge base…</span>
+    </div>
+
+    <div class="topbar__actions">
+      <button class="icon-btn" id="themeToggle" title="Toggle dark / light mode" aria-label="Toggle theme">
+        <svg id="iconSun" viewBox="0 0 24 24" width="18" height="18"><path d="M12 4.5V2m0 20v-2.5M4.5 12H2m20 0h-2.5M6.3 6.3 4.6 4.6m14.8 14.8-1.7-1.7M6.3 17.7l-1.7 1.7M19.4 4.6l-1.7 1.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="4.5" fill="currentColor"/></svg>
+        <svg id="iconMoon" viewBox="0 0 24 24" width="18" height="18" style="display:none"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="app-shell">
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar__section">
+        <h3 class="sidebar__heading">Reference Library</h3>
+        <ul class="doc-list">
+          <li class="doc-chip"><span class="doc-chip__dot dot-blue"></span>IT Policy</li>
+          <li class="doc-chip"><span class="doc-chip__dot dot-green"></span>Duty of Care</li>
+        </ul>
+      </div>
+
+      <div class="sidebar__section">
+        <h3 class="sidebar__heading">Quick Questions</h3>
+        <div class="quick-qs" id="quickQuestions">
+          <button class="quick-q" data-q="How often should email passwords be changed?">Password change frequency</button>
+          <button class="quick-q" data-q="What is considered unacceptable use of the internet and email?">Unacceptable internet use</button>
+          <button class="quick-q" data-q="What does CODE Pakistan do to ensure duty of care towards staff?">Duty of care commitments</button>
+          <button class="quick-q" data-q="What is the emergency response procedure for field staff?">Emergency response procedure</button>
+          <button class="quick-q" data-q="What are the data protection principles?">Data protection principles</button>
+        </div>
+      </div>
+
+      <div class="sidebar__section sidebar__footer">
+        <button class="ghost-btn" id="clearChatBtn">
+          <svg viewBox="0 0 24 24" width="15" height="15"><path d="M4 7h16M9 7V4.8A1.8 1.8 0 0 1 10.8 3h2.4A1.8 1.8 0 0 1 15 4.8V7m2 0-.7 12.2A2 2 0 0 1 14.3 21H9.7a2 2 0 0 1-2-1.8L7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Clear conversation
+        </button>
+        <p class="sidebar__note">Answers are generated only from CODE Pakistan's IT Policy and Duty of Care documents.</p>
+      </div>
+    </aside>
+
+    <!-- ===================== CHAT MAIN ===================== -->
+    <main class="chat-main">
+      <div class="chat-scroll" id="chatScroll">
+        <div class="welcome-card">
+          <div class="welcome-card__badge">RAG-POWERED</div>
+          <h1>Ask about IT Policy &amp; Duty of Care</h1>
+          <p>This assistant retrieves and cites relevant passages directly from CODE Pakistan's official documents — nothing is answered from outside knowledge.</p>
+        </div>
+        <!-- Chat messages are appended here dynamically -->
+      </div>
+
+      <div class="composer">
+        <div class="composer__inner">
+          <textarea
+            id="questionInput"
+            class="composer__input"
+            placeholder="Ask a question about IT Policy or Duty of Care…"
+            rows="1"
+            maxlength="500"
+          ></textarea>
+          <button class="send-btn" id="sendBtn" aria-label="Send question">
+            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M4 12h15m0 0-6-6m6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <p class="composer__hint">Enter to send · Shift + Enter for a new line</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- Message template (cloned via JS) -->
+  <template id="tmpl-user-message">
+    <div class="msg msg--user">
+      <div class="msg__bubble"></div>
+    </div>
+  </template>
+
+  <template id="tmpl-assistant-message">
+    <div class="msg msg--assistant">
+      <div class="msg__avatar">
+        <svg viewBox="0 0 40 40" width="20" height="20"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="3"/><path d="M20 6 A14 14 0 0 1 20 34" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+      </div>
+      <div class="msg__content">
+        <div class="msg__bubble"></div>
+        <div class="msg__citations"></div>
+        <div class="msg__toolbar">
+          <button class="copy-btn" title="Copy answer">
+            <svg viewBox="0 0 24 24" width="13" height="13"><rect x="8" y="8" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="tmpl-typing">
+    <div class="msg msg--assistant msg--typing">
+      <div class="msg__avatar">
+        <svg viewBox="0 0 40 40" width="20" height="20"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="3"/><path d="M20 6 A14 14 0 0 1 20 34" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+      </div>
+      <div class="msg__content">
+        <div class="typing-dots"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>

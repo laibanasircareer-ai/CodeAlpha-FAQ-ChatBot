@@ -28,23 +28,6 @@ covered by the two source documents, it replies with exactly:
 
 ---
 
-## 📸 Screenshots
-
-### Home Interface
-<img width="1458" height="751" alt="image" src="https://github.com/user-attachments/assets/85a9811e-f9dc-4f29-9036-eff06748d45f" />
-
-### AI Chat Response with Source Citations
-<img width="1439" height="755" alt="image" src="https://github.com/user-attachments/assets/dac0e858-fd93-4f61-aff5-2f15b647905e" />
-
-### Semantic Search & RAG Answer
-<img width="1439" height="759" alt="image" src="https://github.com/user-attachments/assets/e27f3fea-624f-45ae-87e7-b563a1d9ca3a" />
-
-### Dark Mode
-<img width="1461" height="765" alt="image" src="https://github.com/user-attachments/assets/7c6ea975-d0fd-4acb-9e9d-ebf3c96430f2" />
-
-
----
-
 ## 2. Architecture
 
 ```
@@ -258,4 +241,3 @@ Clean modular architecture · Conversation-aware prompting
 ---
 
 *Built as a portfolio project for CODE Pakistan.*
-
