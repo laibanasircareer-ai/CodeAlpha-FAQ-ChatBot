@@ -1,4 +1,4 @@
-# CODE Pakistan Policy Assistant
+<img width="1458" height="751" alt="Screenshot 2026-07-13 231513" src="https://github.com/user-attachments/assets/70a1ef03-06a7-46bb-9d76-eeb6d47cf42a" /># CODE Pakistan Policy Assistant
 
 A production-style **Retrieval-Augmented Generation (RAG)** chatbot that answers
 questions strictly from CODE Pakistan's **IT Policy** and **Duty of Care**
@@ -25,6 +25,22 @@ The assistant **never** answers from general knowledge. If a question isn't
 covered by the two source documents, it replies with exactly:
 
 > "I couldn't find that information in the provided CODE Pakistan policy documents."
+
+---
+
+## 📸 Screenshots
+
+### Home Interface
+<img width="1458" height="751" alt="Screenshot 2026-07-13 231513" src="https://github.com/user-attachments/assets/5599c1e4-8288-4105-83e9-824ea82036a5" />
+
+### AI Chat Response with Source Citations
+<img width="1439" height="755" alt="Screenshot 2026-07-13 231548" src="https://github.com/user-attachments/assets/0dc55abd-52f5-4241-b861-3fdcff1eb382" />
+
+### Semantic Search & RAG Answer
+<img width="1439" height="759" alt="Screenshot 2026-07-13 231626" src="https://github.com/user-attachments/assets/cc7d447c-930a-41ac-9e10-26098ad0b023" />
+
+### Dark Mode
+<img width="1461" height="765" alt="Screenshot 2026-07-13 231431" src="https://github.com/user-attachments/assets/56ed3c22-0080-4975-a508-461149dded04" />
 
 ---
 
