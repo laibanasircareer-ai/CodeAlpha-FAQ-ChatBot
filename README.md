@@ -1,4 +1,4 @@
-<img width="1458" height="751" alt="Screenshot 2026-07-13 231513" src="https://github.com/user-attachments/assets/70a1ef03-06a7-46bb-9d76-eeb6d47cf42a" /># CODE Pakistan Policy Assistant
+
 
 A production-style **Retrieval-Augmented Generation (RAG)** chatbot that answers
 questions strictly from CODE Pakistan's **IT Policy** and **Duty of Care**
