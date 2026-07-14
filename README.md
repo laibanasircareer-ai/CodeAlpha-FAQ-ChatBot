@@ -1,4 +1,4 @@
-
+# CODE Pakistan Policy Assistant
 
 A production-style **Retrieval-Augmented Generation (RAG)** chatbot that answers
 questions strictly from CODE Pakistan's **IT Policy** and **Duty of Care**
